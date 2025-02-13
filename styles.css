@@ -1,0 +1,211 @@
+body {
+    background-color: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header-container {
+    position: absolute;
+    top: -200px; /* Adjust the position as needed */
+    width: 450px;
+    text-align: center;
+}
+
+.header-container h1 {
+    color: #9a1325;
+    font-size: 2em;
+    font-family: "Emilys Candy", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.os-container {
+    position: fixed;
+    bottom: 20px; /* Adjust the position as needed */
+    right: 20px; /* Adjust the position as needed */
+    width: 500px;
+    text-align: right;
+    display: none;
+
+}
+
+.os {
+    font-size: 10px;
+    line-height: 8px;
+    color: #9a1325;
+    font-family: "LXGW WenKai Mono TC", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.pacman {
+    width: 0;
+    height: 0;
+    border-top: 130px solid yellow;
+    border-right: 130px solid transparent;
+    border-bottom: 130px solid yellow;
+    border-left: 130px solid yellow;
+    border-radius: 130px;
+    position: absolute;
+    margin: auto;
+    z-index: 2;
+    display: none; /* Initially hide Pac-Man */
+}
+
+.pac-eye {
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: -55px;
+    right: -20px;
+    z-index: 1;
+}
+
+.img-container {
+    width: 375px;
+    height: 250px;
+    position: absolute;
+    margin: auto;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.chocolate {
+    width: 518px;
+    height: 252px;
+    background-color: #300E02;
+    z-index: 1;
+    position: absolute;
+    margin: auto;
+    padding: 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 5px 5px 3.2px;
+    clip-path: inset(0 0 0 0); /* Initially show the entire chocolate bar */
+}
+
+.choco-row {
+    display: flex;
+}
+
+#row-1 {
+    margin-bottom: 10px;
+}
+
+#row-1 .choco-block {
+    box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 3.2px;
+}
+
+.choco-block {
+    width: 119px;
+    height: 119px;
+    background: linear-gradient(90deg, #4A1B00, #5b3118);
+    margin-right: 14px;
+}
+
+.choco-block:last-child {
+    margin-right: 0;
+}
+
+
+.btn-container {
+    position: absolute;
+    top: 150px;
+}
+
+/* CSS */
+.btn {
+  appearance: button;
+  background-color: #a41629;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.btn:after {
+  background-clip: padding-box;
+  background-color: #ff3e82;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.btn,
+.btn:focus {
+  user-select: auto;
+}
+
+.btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.btn:disabled {
+  cursor: auto;
+}
+
+.btn:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+@keyframes move {
+    0% { transform: translateX(-225px); }
+    100% { transform: translateX(225px); }
+}
+
+@keyframes chomp {
+    0%, 100% { border-right: 130px solid yellow; }
+    50% { border-right: 130px solid transparent; }
+}
+
+@keyframes disappear {
+    0% { clip-path: inset(0 0 0 0); }
+    100% { clip-path: inset(0 0 0 100%); }
+}
